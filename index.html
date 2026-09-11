@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: #000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,6 +44,7 @@
             pointer-events: none;
             font-family: 'Courier New', monospace;
             color: #fff;
+            z-index: 5;
         }
 
         /* Score Display */
@@ -52,13 +53,14 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px 40px;
             border-radius: 10px;
             text-align: center;
             font-size: 28px;
             font-weight: bold;
             z-index: 10;
+            border: 2px solid #ffed4e;
         }
 
         #matchTime {
@@ -89,11 +91,12 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 8px;
             font-size: 14px;
             z-index: 10;
+            border: 2px solid #ffed4e;
         }
 
         #playerInfo div {
@@ -116,11 +119,12 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 8px;
-            width: 200px;
+            width: 250px;
             z-index: 10;
+            border: 2px solid #ffed4e;
         }
 
         .bar-label {
@@ -150,7 +154,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             padding: 40px;
             border-radius: 15px;
             text-align: center;
@@ -167,13 +171,14 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 8px;
             font-size: 12px;
             line-height: 1.8;
             z-index: 10;
             max-width: 250px;
+            border: 2px solid #ffed4e;
         }
 
         .control-item {
@@ -196,11 +201,12 @@
             position: absolute;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 8px;
             font-size: 14px;
             z-index: 10;
+            border: 2px solid #ffed4e;
         }
 
         .possession-team {
@@ -208,6 +214,26 @@
             font-weight: bold;
             color: #ffed4e;
             margin-top: 8px;
+        }
+
+        /* Error Display */
+        #errorDisplay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            display: none;
+            z-index: 100;
+            border: 3px solid #ff0000;
+            max-width: 500px;
+            line-height: 1.8;
         }
 
         /* Animations */
@@ -224,6 +250,8 @@
 <body>
     <div id="gameContainer">
         <canvas id="canvas"></canvas>
+        
+        <div id="errorDisplay"></div>
         
         <div id="uiOverlay">
             <!-- Score Board -->
@@ -280,14 +308,26 @@
         </div>
     </div>
 
-    <!-- Three.js Library -->
+    <!-- Three.js Library (with fallback) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Check if Three.js loaded
+        if (typeof THREE === 'undefined') {
+            document.getElementById('errorDisplay').style.display = 'block';
+            document.getElementById('errorDisplay').innerHTML = '❌ Error: Three.js failed to load<br/>Please check your internet connection or try a different browser';
+        }
+    </script>
     
-    <!-- Game Scripts -->
-    <script src="GameStateManager.js"></script>
-    <script src="BallPhysics.js"></script>
-    <script src="PlayerController.js"></script>
-    <script src="AIStateMachine.js"></script>
-    <script src="main.js"></script>
+    <!-- Complete Game Script -->
+    <script src="files/Scripts/FullGame.js"></script>
+    
+    <!-- Error Handling -->
+    <script>
+        window.addEventListener('error', (event) => {
+            console.error('Script Error:', event.error);
+            document.getElementById('errorDisplay').style.display = 'block';
+            document.getElementById('errorDisplay').innerHTML = '❌ Error Loading Game:<br/>' + event.error.message + '<br/><br/>Check console for details';
+        });
+    </script>
 </body>
 </html>
