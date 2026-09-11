@@ -1,0 +1,168 @@
+{
+  "name": "3d-soccer-game-engine",
+  "version": "1.0.0",
+  "description": "A fully functional 3D soccer game (FIFA/EA Sports FC style) built with HTML5, JavaScript, and Three.js. Features arcade-simulation hybrid physics, responsive player controls, AI opponents, and realistic ball mechanics.",
+  "main": "main.js",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "start-node": "npx http-server -p 8000",
+    "dev": "npx http-server -p 8000 -c-1",
+    "build": "echo 'No build step required - pure vanilla JS'",
+    "test": "echo 'Testing framework not yet implemented'"
+  },
+  "keywords": [
+    "soccer",
+    "football",
+    "3D-game",
+    "game-engine",
+    "Three.js",
+    "JavaScript",
+    "WebGL",
+    "arcade",
+    "simulation",
+    "physics",
+    "AI",
+    "FIFA",
+    "EA-Sports",
+    "multiplayer-ready"
+  ],
+  "author": {
+    "name": "berabera54152",
+    "email": "berabera54152@gmail.com",
+    "url": "https://github.com/berabera54152-cell"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/berabera54152-cell/3D-Soccer-Game-Engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/berabera54152-cell/3D-Soccer-Game-Engine/issues"
+  },
+  "homepage": "https://github.com/berabera54152-cell/3D-Soccer-Game-Engine#readme",
+  "dependencies": {
+    "three": "^r128"
+  },
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "chrome >= 60",
+    "firefox >= 55",
+    "safari >= 11",
+    "edge >= 79"
+  ],
+  "features": {
+    "core_gameplay": [
+      "90-minute matches scaled to 6 real-time minutes",
+      "Team-based soccer with 9 players per side",
+      "Real-time score tracking",
+      "Multiple game states (KickOff, Gameplay, HalfTime, MatchEnd, Paused)"
+    ],
+    "player_controls": [
+      "8-directional movement (W/A/S/D)",
+      "Sprint with stamina drain (SHIFT)",
+      "Ground pass (SPACE)",
+      "Shooting with accuracy-based error (CTRL)",
+      "Game pause/resume (P)",
+      "Game restart (R)"
+    ],
+    "ball_physics": [
+      "Ground passes (5-15 m/s)",
+      "Lofted passes with arc",
+      "High-power shooting (up to 35 m/s)",
+      "Realistic bounce, friction, and air resistance",
+      "Out-of-bounds and goal detection"
+    ],
+    "ai_system": [
+      "Finite State Machine with 6 states",
+      "Intelligent decision-making",
+      "Difficulty levels (Easy, Medium, Hard)",
+      "1 player-controlled + 8 AI teammates",
+      "9 AI opponents"
+    ],
+    "ui_ux": [
+      "Real-time scoreboard",
+      "Player statistics display",
+      "Stamina bar with visual feedback",
+      "Possession indicator",
+      "Game state messages",
+      "On-screen control guide"
+    ]
+  },
+  "file_structure": {
+    "index.html": "Main game page with UI elements",
+    "main.js": "Game initialization and main loop",
+    "GameStateManager.js": "Match state and timing management",
+    "PlayerController.js": "Player movement and input handling",
+    "BallPhysics.js": "Ball physics and interactions",
+    "AIStateMachine.js": "AI opponent logic and state management",
+    "package.json": "Project metadata and dependencies",
+    "README.md": "Comprehensive documentation"
+  },
+  "technical_specs": {
+    "rendering_engine": "Three.js (WebGL)",
+    "language": "Vanilla JavaScript (ES6+)",
+    "physics": "Custom physics engine",
+    "ai": "Finite State Machine",
+    "target_fps": 60,
+    "min_file_size": "~63 KB (core files)",
+    "three_js_size": "~200 KB (CDN, minified)"
+  },
+  "customization": {
+    "player_colors": "Change team colors in PlayerController.js",
+    "ai_difficulty": "Set difficulty in main.js (Easy, Medium, Hard)",
+    "physics_parameters": "Adjust in BallPhysics.js",
+    "match_duration": "Configure in GameStateManager.js"
+  },
+  "performance": {
+    "optimization_level": "High",
+    "recommended_browser": "Chrome 60+, Firefox 55+, Safari 11+, Edge 79+",
+    "webgl_required": true,
+    "javascript_required": true,
+    "additional_installations": "None"
+  },
+  "future_features": [
+    "Player switching system",
+    "Pass/shoot meter UI",
+    "Action replay system",
+    "Audio effects and crowd ambiance",
+    "Enhanced stadium graphics",
+    "Player statistics tracking",
+    "Tutorial mode",
+    "Multiplayer support"
+  ],
+  "known_limitations": [
+    "No pass/shoot charging UI (implemented in code)",
+    "No player switching (fixed on one forward)",
+    "Limited stadium details",
+    "No sound effects or music",
+    "No replay system",
+    "Minimal animation (simple player models)"
+  ],
+  "quick_start": {
+    "step_1": "Clone or download the repository",
+    "step_2": "Open index.html in a modern web browser",
+    "step_3": "Use WASD to move, SHIFT to sprint",
+    "step_4": "Press SPACE to pass, CTRL to shoot",
+    "step_5": "Press P to pause, R to restart"
+  },
+  "system_requirements": {
+    "os": "Windows, macOS, Linux, or any OS with a web browser",
+    "browser": "Modern browser with WebGL support",
+    "ram": "512 MB minimum",
+    "disk_space": "Less than 1 MB",
+    "internet": "Required for Three.js CDN (optional: use local copy)"
+  },
+  "credits": {
+    "framework": "Three.js - WebGL renderer",
+    "language": "Vanilla JavaScript (ES6+)",
+    "physics": "Custom physics engine",
+    "ai": "Finite State Machine pattern",
+    "inspiration": "FIFA/EA Sports FC series"
+  }
+}
